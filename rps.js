@@ -1,71 +1,61 @@
-
 let x;
-let  num = 0;
+let computersChoice = 0;
 
-
-function computerChoice() {                    // function randomly generates a number of 1,2 or 3
-  x = Math.ceil(Math.random() * 3);            // x gets randomly generated number
+function computerChooses() {                    // function randomly generates a number of 1,2 or 3
+  x = Math.ceil(Math.random() * 3);           // x gets randomly generated number
+  if (x === 1)
+    computersChoice = "rock";
+  if (x === 2)
+    computersChoice = "paper";
+  if (x === 3)
+    computersChoice = "scissors";
 }
 
-function rock() {                              // When user chooses rock
-  num = 1;                                     //  num gets assigned a value of 1
-  if(num === x) {                              // if num === x user value and computer value are equal it's a draw
-    alert("computer chose rock Draw !!");      // print draw
-    computerChoice();                          // randomly geneate a new computer number
-    return false;                              // exit function so user can play again
+function rock() {  
+  let userChoice = "rock";         
+  if(userChoice === computersChoice) {
+    let result = "DRAW";                              
+    alertString(result);
     }
-  
-  if(x === 2) {                                // if computer value is 2
-    alert("computer chose paper YOU LOSE !!"); // paper beats rock so user loses
-    computerChoice();                          // generate new random number 
-    return false;                              // exit function so user can play again
+  else if(computersChoice === "paper") {      
+    let result = "You Lose"; 
+    alertString(result);                 
     }
-  
-  if(x === 3) {
-    alert("computer chose scissors YOU WIN !!");
-    computerChoice();
-    return false;
+  else if(computersChoice === "scissors") {
+    let result = "You win";
+    alertString(result);
     }
 }
-   
+ 
 function paper() {
-  num = 2;
-  if(num === x) {
-    alert("computer chose paper DRAW !!");
-    computerChoice();
-    return false
+  let userChoice = "paper";         
+
+  if(userChoice === computersChoice) {                           
+    alertString("Draw");
     }
-   
-  if(x === 1) {
-    alert("computer chose rock YOU WIN !!");
-    computerChoice();
-    return false;
+  else if(computersChoice === "rock") {       
+    alertString("You Win");                 
     }
-  
-    if(x === 3) {
-    alert("computer chose scissors YOU LOSE !!");
-    computerChoice();
-    return false;
+  else if(computersChoice === "scissors") {
+    alertString("You Lose");
     }
 }
    
 function scissors() {
-  num = 3;
-  if(num === x) {
-    alert("computer chose scissors DRAW !!");
-    computerChoice();
-    return false;
+  let userChoice = "scissors";         
+
+  if(userChoice === computersChoice) {                          
+    alertString("Draw");
     }
-    
-  if(x === 2) {
-    alert("computer chose paper YOU WIN !!");
-    computerChoice();
-    return false;
+  else if(computersChoice === "rock") {       
+    alertString("You Lose");                 
     }
-  if(x === 1) {
-    alert("computer chose rock YOU LOSE !!");
-    computerChoice();
-    return false;
+  else if(computersChoice === "paper") {
+    alertString("You Win");
     }
-}
-   
+  }
+
+function alertString(outcome) {
+  alert("Computer chose " + computersChoice +" " + outcome);
+  computerChooses();
+  }
