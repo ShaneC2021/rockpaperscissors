@@ -2,28 +2,27 @@ let x;
 let computersChoice = 0;
 
 function computerChooses() {                    // function randomly generates a number of 1,2 or 3
-  x = Math.ceil(Math.random() * 3);           // x gets randomly generated number
+  x = Math.ceil(Math.random() * 3);             // x gets randomly generated number
   if (x === 1)
-    computersChoice = "rock";
+    computersChoice = "rock";                   //each number is assigned a different choice
   if (x === 2)
     computersChoice = "paper";
   if (x === 3)
     computersChoice = "scissors";
 }
 
-function rock() {  
+function rock() {                                    // user chooses rock triggers rock funtion
   let userChoice = "rock";         
-  if(userChoice === computersChoice) {
-    let result = "DRAW";                              
-    alertString(result);
+ 
+  if(userChoice === computersChoice) {                                           
+    alertString("Draw");                             // alert prints appropriate string dependent on result
     }
   else if(computersChoice === "paper") {      
-    let result = "You Lose"; 
-    alertString(result);                 
+    alertString("You lose");                 
     }
   else if(computersChoice === "scissors") {
-    let result = "You win";
-    alertString(result);
+     
+    alertString("You win");
     }
 }
  
